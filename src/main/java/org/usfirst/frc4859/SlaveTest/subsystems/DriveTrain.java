@@ -72,7 +72,7 @@ public class DriveTrain extends Subsystem {
         
         
         
-        talonLeftFollower = new WPI_TalonSRX(1);
+        talonLeftFollower = new WPI_TalonSRX(4);
         
         
         
@@ -120,7 +120,7 @@ public class DriveTrain extends Subsystem {
 
     private void motorConfig(){
         talonRightFollower.follow(talonRightMaster);
-        talonRightMaster.setInverted(true);
+        talonRightMaster.setInverted(false);
         talonRightFollower.setInverted(InvertType.FollowMaster);
         talonLeftFollower.follow(talonLeftMaster);
         talonLeftMaster.setInverted(true);

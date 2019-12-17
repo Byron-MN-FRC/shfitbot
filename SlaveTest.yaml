@@ -97,7 +97,7 @@ Children:
               default: '2'
               name: CAN ID
               validators: *id002
-              value: '1'
+              value: '4'
           Base: Talon SRX
           Name: talonLeftFollower
         Properties:
