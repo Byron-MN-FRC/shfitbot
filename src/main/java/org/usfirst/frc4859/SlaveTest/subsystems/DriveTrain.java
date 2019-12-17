@@ -68,7 +68,7 @@ public class DriveTrain extends Subsystem {
         addChild("talonGroupRight",talonGroupRight);
         
         
-        talonLeftMaster = new WPI_TalonSRX(0);
+        talonLeftMaster = new WPI_TalonSRX(3);
         
         
         
@@ -80,7 +80,7 @@ public class DriveTrain extends Subsystem {
         addChild("talonGroupLeft",talonGroupLeft);
         
         
-        tankDrive = new DifferentialDrive(talonGroupRight, talonRightMaster);
+        tankDrive = new DifferentialDrive(talonGroupLeft, talonGroupRight);
         addChild("tankDrive",tankDrive);
         tankDrive.setSafetyEnabled(true);
         tankDrive.setExpiration(0.1);
@@ -120,12 +120,17 @@ public class DriveTrain extends Subsystem {
 
     private void motorConfig(){
         talonRightFollower.follow(talonRightMaster);
-        talonRightMaster.setInverted(false);
+        talonRightMaster.setInverted(true);
         talonRightFollower.setInverted(InvertType.FollowMaster);
+        talonLeftFollower.follow(talonLeftMaster);
+        talonLeftMaster.setInverted(true);
+        talonLeftFollower.setInverted(false);
+        talonLeftFollower.setInverted(InvertType.FollowMaster);
     }
 
     public void DriveForward(){
         talonRightMaster.set(.5);
+        talonLeftMaster.set(.5);
     }
 
     public void stop(){

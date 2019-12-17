@@ -87,7 +87,7 @@ Children:
               default: '2'
               name: CAN ID
               validators: *id002
-              value: '0'
+              value: '3'
           Base: Talon SRX
           Name: talonLeftMaster
         - Children: []
@@ -127,7 +127,7 @@ Children:
           name: Right Motor
           type: PIDOutput
           validators: [RobotDrive2, ChildDropdownSelected]
-          value: talonRightMaster
+          value: talonGroupRight
         Maximum Output: !!robotbuilder.data.properties.DoubleProperty {default: 1,
           name: Maximum Output, validators: null, value: 1.0}
         Left Motor: !!robotbuilder.data.properties.ChildSelectionProperty
@@ -135,7 +135,7 @@ Children:
           name: Left Motor
           type: PIDOutput
           validators: [RobotDrive2, ChildDropdownSelected]
-          value: talonGroupRight
+          value: talonGroupLeft
         Safety Expiration Time: !!robotbuilder.data.properties.DoubleProperty {default: 0.1,
           name: Safety Expiration Time, validators: null, value: 0.1}
         Safety Enabled: !!robotbuilder.data.properties.BooleanProperty {default: true,
